@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poll Results</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Poll Results</h1>
+        <div id="resultsDisplay"></div>
+        <a href="index.html" class="role-button">Back to Home</a>
+    </div>
+
+    <script>
+        const predefinedResults = {
+            question: "What's your favorite programming language?",
+            options: [
+                { text: "JavaScript", votes: 15 },
+                { text: "Python", votes: 12 },
+                { text: "C++", votes: 7 },
+                { text: "Java", votes: 6 }
+            ]
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            displayResults(predefinedResults.question, predefinedResults.options);
+        });
+
+        function displayResults(question, options) {
+            const resultsDisplay = document.getElementById('resultsDisplay');
+            resultsDisplay.innerHTML = `<h2>Results for: ${question}</h2>`;
+            options.forEach(option => {
+                resultsDisplay.innerHTML += `<p>${option.text}: ${option.votes} votes</p>`;
+            });
+        }
+    </script>
+</body>
+</html>
